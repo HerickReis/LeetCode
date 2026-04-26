@@ -59,11 +59,11 @@ public class RomanToInteger {
 
         for (int i = 0; i < expressionLenght; i++){
 
-            int current = RomanNumbers.get(romanExpression.charAt(i));
+            int current = RomanNumbers.get(String.valueOf(romanExpression.charAt(i)));
             int next = (i + 1 < expressionLenght)
-                    ? RomanNumbers.get(romanExpression.charAt(i + 1)) : 0;
+                    ? RomanNumbers.get(String.valueOf(romanExpression.charAt(i + 1))) : 0;
 
-            RomanNumbers.get(romanExpression.charAt(i));
+            RomanNumbers.get(String.valueOf(romanExpression.charAt(i)));
 
             int decision = conversionRule(current, next);
 
