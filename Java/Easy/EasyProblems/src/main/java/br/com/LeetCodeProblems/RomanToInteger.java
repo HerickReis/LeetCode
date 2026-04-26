@@ -43,10 +43,12 @@ public class RomanToInteger {
 
     public int romanToInt(String s) {
 
+        ConversionRule(s.toUpperCase());
+
         return 1;
     }
 
-    private int ConversionTable(String roman, int num) {
+    private int ConversionTable(String roman) {
         Map<String, Integer> RomanNumbers = Map.of(
                 "I", 1,
                 "V", 5,
@@ -64,6 +66,12 @@ public class RomanToInteger {
 
     private void ConversionRule(String romanExpression){
 
+        
+
+
+
+        int anterior = ConversionTable(romanExpression);
+        int atual = ConversionTable(romanExpression);
 
 
     }
