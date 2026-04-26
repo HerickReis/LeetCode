@@ -59,19 +59,22 @@ public class RomanToInteger {
 
         for (int i = 0; i < expressionLenght; i++){
 
-            int current = RomanNumbers.get(romanExpression.charAt(i));
-            int next = (i + 1 < expressionLenght)
-                    ? RomanNumbers.get(romanExpression.charAt(i + 1)) : 0;
+            int current = RomanNumbers.get(String.valueOf(romanExpression.charAt(i)));
+            int next = (i + 1 < romanExpression.length())
+                    ? RomanNumbers.get(String.valueOf(romanExpression.charAt(i)))
+                    : 0;
 
-            RomanNumbers.get(romanExpression.charAt(i));
+            System.out.println("Current: " + current + " next: "+ next);
+
+            RomanNumbers.get(String.valueOf(romanExpression.charAt(i)));
 
             int decision = conversionRule(current, next);
 
             if (decision == 1){
                 sum += current;
                 System.out.println("Soma: " + current + " =  " + sum);
-            }
-            if (decision == 0){
+
+            } else if (decision == 0){
                 sum -= current;
                 System.out.println("subtrai:  " + current + " =  " + sum);
 
@@ -95,7 +98,7 @@ public class RomanToInteger {
 
     public static void main(String[] args) {
         RomanToInteger romanToInteger = new RomanToInteger();
-        System.out.println(romanToInteger.romanToInt("XIV"));
+        System.out.println(romanToInteger.romanToInt("MCMXCIV"));
     }
 }
 
