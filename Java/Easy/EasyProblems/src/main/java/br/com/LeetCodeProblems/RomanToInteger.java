@@ -66,14 +66,16 @@ public class RomanToInteger {
 
     private void ConversionRule(String romanExpression){
 
-        
+        int index = 0;
+
+        int current = ConversionTable(String.valueOf(romanExpression.charAt(index)));
+        int next = ConversionTable(String.valueOf(romanExpression.charAt(index+1)));
 
 
 
-        int anterior = ConversionTable(romanExpression);
-        int atual = ConversionTable(romanExpression);
-
+        if  {
 
     }
 
 }
+
