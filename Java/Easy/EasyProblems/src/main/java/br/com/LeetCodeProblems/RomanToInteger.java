@@ -79,10 +79,10 @@ public class RomanToInteger {
 
             if (decision == 1){
                 sum += current;
-                System.out.println("Soma: " + sum);
+                System.out.println("Soma: " + current + " =  " + sum);
             }
             else {
-                sum -= (current - next);
+                sum -= current;
                 System.out.println("subtrai:  " + current + " =  " + sum);
 
             }
@@ -106,7 +106,7 @@ public class RomanToInteger {
 
     public static void main(String[] args) {
         RomanToInteger romanToInteger = new RomanToInteger();
-        System.out.println(romanToInteger.romanToInt("MCMXCIV"));
+        System.out.println(romanToInteger.romanToInt("LVIII"));
 
     }
 
