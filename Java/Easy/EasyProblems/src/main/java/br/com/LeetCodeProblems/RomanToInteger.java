@@ -47,12 +47,12 @@ public class RomanToInteger {
 
     public int romanToInt(String s) {
 
-        ConversionRule(s.toUpperCase());
+//        ConversionRule(s.toUpperCase());
 
         return 1;
     }
 
-    private int ConversionTable(String roman) {
+    private int conversionTable(String roman) {
         Map<String, Integer> RomanNumbers = Map.of(
                 "I", 1,
                 "V", 5,
@@ -68,29 +68,37 @@ public class RomanToInteger {
         return RomanNumbers.get(roman);
     }
 
-    private void ConversionRule(String romanExpression){
+    private void conversionRule(String romanExpression){
 
         int index = 0;
         int expressionLenght = romanExpression.length();
 
-        int current = ConversionTable(String.valueOf(romanExpression.charAt(index)));
-        int next = ConversionTable(String.valueOf(romanExpression.charAt(index+1)));
+        int current = conversionTable(String.valueOf(romanExpression.charAt(index)));
+        int next = conversionTable(String.valueOf(romanExpression.charAt(index+1)));
 
         for (int i = index; i < expressionLenght; i++){
             if (current < next ) {
                 this.currentNumber = current;
                 this.nextNumber = next;
+                this.sum = next + current;
 
-                this.sum = 
-
-                this.sum = nextNumber;
-            } else if (current >) {
-
+            } else if (current >= next) {
+                this.currentNumber = current;
+                this.nextNumber = next;
+                this.sum = current + next;
             }
 
         }
 
-    };
+    }
+
+
+    public static void main(String[] args) {
+        RomanToInteger romanToInteger = new RomanToInteger();
+        System.out.println(romanToInteger.romanToInt("I"));
+
+
+    }
 
 }
 
