@@ -41,6 +41,10 @@ import java.util.Map;
 
 public class RomanToInteger {
 
+    int currentNumber = 0;
+    int nextNumber = 0;
+    int sum = 0;
+
     public int romanToInt(String s) {
 
         ConversionRule(s.toUpperCase());
@@ -67,15 +71,26 @@ public class RomanToInteger {
     private void ConversionRule(String romanExpression){
 
         int index = 0;
+        int expressionLenght = romanExpression.length();
 
         int current = ConversionTable(String.valueOf(romanExpression.charAt(index)));
         int next = ConversionTable(String.valueOf(romanExpression.charAt(index+1)));
 
+        for (int i = index; i < expressionLenght; i++){
+            if (current < next ) {
+                this.currentNumber = current;
+                this.nextNumber = next;
 
+                this.sum = 
 
-        if  {
+                this.sum = nextNumber;
+            } else if (current >) {
 
-    }
+            }
+
+        }
+
+    };
 
 }
 
