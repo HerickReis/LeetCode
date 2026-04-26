@@ -1,6 +1,4 @@
 package br.com.LeetCodeProblems;
-
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -38,7 +36,6 @@ import java.util.Map;
 
  */
 
-
 public class RomanToInteger {
     Map<String, Integer> RomanNumbers = Map.of(
             "I", 1,
@@ -65,27 +62,21 @@ public class RomanToInteger {
             int next = (i + 1 < romanExpression.length())
                     ? RomanNumbers.get(String.valueOf(romanExpression.charAt(i+1))) : 0;
 
-            System.out.println("Current: " + current + " next: "+ next);
-
             RomanNumbers.get(String.valueOf(romanExpression.charAt(i)));
 
             int decision = conversionRule(current, next);
 
             if (decision == 1){
                 sum += current;
-                System.out.println("Soma: " + current + " =  " + sum);
 
             } else if (decision == 0){
                 sum -= current;
-                System.out.println("subtrai:  " + current + " =  " + sum);
 
             }
-
         }
-
         return sum;
-
     }
+
 
     private int conversionRule(int currentNumber, int nextNumber){
         if (currentNumber < nextNumber) {
@@ -102,4 +93,3 @@ public class RomanToInteger {
         System.out.println(romanToInteger.romanToInt("MCMXCIV"));
     }
 }
-
