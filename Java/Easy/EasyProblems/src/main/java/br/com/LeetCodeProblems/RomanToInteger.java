@@ -40,17 +40,19 @@ import java.util.Map;
 
 
 public class RomanToInteger {
+    Map<String, Integer> RomanNumbers = Map.of(
+            "I", 1,
+            "V", 5,
+            "X", 10,
+            "L", 50,
+            "C", 100,
+            "D", 500,
+            "M", 1000);
+
     public int romanToInt(String s) {
         return calculate(s.toUpperCase());
     }
-        Map<String, Integer> RomanNumbers = Map.of(
-                "I", 1,
-                "V", 5,
-                "X", 10,
-                "L", 50,
-                "C", 100,
-                "D", 500,
-                "M", 1000);
+
     private int calculate(String romanExpression){
 
         int expressionLenght = romanExpression.length();
@@ -61,8 +63,7 @@ public class RomanToInteger {
 
             int current = RomanNumbers.get(String.valueOf(romanExpression.charAt(i)));
             int next = (i + 1 < romanExpression.length())
-                    ? RomanNumbers.get(String.valueOf(romanExpression.charAt(i)))
-                    : 0;
+                    ? RomanNumbers.get(String.valueOf(romanExpression.charAt(i+1))) : 0;
 
             System.out.println("Current: " + current + " next: "+ next);
 
