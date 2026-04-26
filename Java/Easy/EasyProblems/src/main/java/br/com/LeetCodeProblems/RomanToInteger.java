@@ -71,6 +71,9 @@ public class RomanToInteger {
         int current = conversionTable(String.valueOf(romanExpression.charAt(index)));
         int next = conversionTable(String.valueOf(romanExpression.charAt(index+1)));
 
+
+        System.out.println("Current number: " + current + " / Next number: " + next);
+
         for (int i = index; i < expressionLenght; i++){
             conversionTable(String.valueOf(romanExpression.charAt(i)));
 
@@ -82,6 +85,7 @@ public class RomanToInteger {
             }
             else {
                 sum -= current;
+                System.out.println("Subtrai Menor" + sum);
             }
         }
 
@@ -102,7 +106,7 @@ public class RomanToInteger {
 
     public static void main(String[] args) {
         RomanToInteger romanToInteger = new RomanToInteger();
-        System.out.println(romanToInteger.calculate("LVIII"));
+        System.out.println(romanToInteger.romanToInt("iii"));
 
     }
 
