@@ -40,16 +40,11 @@ import java.util.Map;
 
 
 public class RomanToInteger {
-
     int currentNumber = 0;
     int nextNumber = 0;
-    int sum = 0;
 
     public int romanToInt(String s) {
-
-         calculate(s.toUpperCase());
-
-        return 1;
+        return calculate(s.toUpperCase());
     }
 
     private int conversionTable(String roman) {
@@ -63,41 +58,51 @@ public class RomanToInteger {
                 "M", 1000
         );
 
-
-
         return RomanNumbers.get(roman);
     }
 
-    private void conversionRule(String romanExpression){
+    private int calculate(String romanExpression){
 
         int index = 0;
         int expressionLenght = romanExpression.length();
+
+        int sum = 0;
 
         int current = conversionTable(String.valueOf(romanExpression.charAt(index)));
         int next = conversionTable(String.valueOf(romanExpression.charAt(index+1)));
 
         for (int i = index; i < expressionLenght; i++){
-            if (current < next ) {
-                this.currentNumber = current;
-                this.nextNumber = next;
+            conversionTable(String.valueOf(romanExpression.charAt(i)));
 
-            } else if (current >= next) {
-                this.currentNumber = current;
-                this.nextNumber = next;
+            int decision = conversionRule(current, next);
+
+            if (decision == 1){
+                sum += next;
+                System.out.println("Soma igual/ maior" + sum);
             }
-
+            else {
+                sum -= current;
+            }
         }
+
+        return sum;
 
     }
 
-    private int calculate(String romanExpression){
+    private int conversionRule(int currentNumber, int nextNumber){
+        if (currentNumber < nextNumber) {
+            return 0;
 
+        } else if (currentNumber >= nextNumber) {
+            return 1;
+        }
+        return 0;
     }
 
 
     public static void main(String[] args) {
         RomanToInteger romanToInteger = new RomanToInteger();
-        System.out.println(romanToInteger.romanToInt("I"));
+        System.out.println(romanToInteger.calculate("LVIII"));
 
     }
 
