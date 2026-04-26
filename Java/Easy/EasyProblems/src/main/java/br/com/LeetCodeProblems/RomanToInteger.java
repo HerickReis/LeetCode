@@ -83,7 +83,7 @@ public class RomanToInteger {
                 System.out.println("Soma igual/ maior " + sum);
             }
             else {
-                sum = (next - current);
+                sum -= (next - current);
                 System.out.println("resultado subtrai Menor  " + sum);
 
             }
