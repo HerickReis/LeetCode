@@ -82,10 +82,9 @@ public class RomanToInteger {
         if (currentNumber < nextNumber) {
             return 0;
 
-        } else if (currentNumber >= nextNumber) {
+        } else {
             return 1;
         }
-        return 0;
     }
 
     public static void main(String[] args) {
