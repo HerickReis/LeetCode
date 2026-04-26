@@ -63,31 +63,33 @@ public class RomanToInteger {
 
     private int calculate(String romanExpression){
 
-        int index = 0;
         int expressionLenght = romanExpression.length();
 
         int sum = 0;
 
-        for (int i = index; i < expressionLenght; i++){
+        for (int i = 0; i < expressionLenght; i++){
 
-            int current = conversionTable(String.valueOf(romanExpression.charAt(index)));
-            int next = conversionTable(String.valueOf(romanExpression.charAt(index+1)) );
+            int current = conversionTable(String.valueOf(romanExpression.charAt(i)));
+            int next = (i + 1 < romanExpression.length())
+                    ? conversionTable(String.valueOf(romanExpression.charAt(i + 1))) : 0;
 
-            System.out.println("Current number: " + current + " / Next number: " + next + "index" + index);
+            System.out.println("Current number: " + current + " / Next number: " + next + " index " + i);
             conversionTable(String.valueOf(romanExpression.charAt(i)));
 
             int decision = conversionRule(current, next);
 
             if (decision == 1){
-                sum = (current + next);
-                System.out.println("Soma igual/ maior" + sum);
+                sum += (current + next);
+                System.out.println("Soma igual/ maior " + sum);
             }
             else {
                 sum = (next - current);
-                System.out.println("resultado subtrai Menor" + sum);
+                System.out.println("resultado subtrai Menor  " + sum);
 
             }
-            index++;
+
+            current = 0;
+            next = 0;
 
         }
 
