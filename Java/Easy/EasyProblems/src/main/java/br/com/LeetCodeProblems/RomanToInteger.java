@@ -72,7 +72,7 @@ public class RomanToInteger {
             int current = conversionTable(String.valueOf(romanExpression.charAt(i)));
             int next = (i + 1 < romanExpression.length())
                     ? conversionTable(String.valueOf(romanExpression.charAt(i + 1))) : 0;
-            
+
             conversionTable(String.valueOf(romanExpression.charAt(i)));
 
             int decision = conversionRule(current, next);
@@ -82,8 +82,8 @@ public class RomanToInteger {
                 System.out.println("Soma: " + sum);
             }
             else {
-                sum -= (next - current);
-                System.out.println("subtrai:  " + sum);
+                sum -= (current - next);
+                System.out.println("subtrai:  " + current + " =  " + sum);
 
             }
 
