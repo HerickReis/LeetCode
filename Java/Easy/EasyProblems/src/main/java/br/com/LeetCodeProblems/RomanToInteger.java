@@ -72,19 +72,18 @@ public class RomanToInteger {
             int current = conversionTable(String.valueOf(romanExpression.charAt(i)));
             int next = (i + 1 < romanExpression.length())
                     ? conversionTable(String.valueOf(romanExpression.charAt(i + 1))) : 0;
-
-            System.out.println("Current number: " + current + " / Next number: " + next + " index " + i);
+            
             conversionTable(String.valueOf(romanExpression.charAt(i)));
 
             int decision = conversionRule(current, next);
 
             if (decision == 1){
                 sum += current;
-                System.out.println("Soma igual/ maior " + sum);
+                System.out.println("Soma: " + sum);
             }
             else {
                 sum -= (next - current);
-                System.out.println("resultado subtrai Menor  " + sum);
+                System.out.println("subtrai:  " + sum);
 
             }
 
