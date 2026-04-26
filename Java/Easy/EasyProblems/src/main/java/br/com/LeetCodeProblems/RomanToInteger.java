@@ -80,12 +80,12 @@ public class RomanToInteger {
             int decision = conversionRule(current, next);
 
             if (decision == 1){
-                sum += next;
+                sum = (current + next);
                 System.out.println("Soma igual/ maior" + sum);
             }
             else {
-                sum -= current;
-                System.out.println("Subtrai Menor" + sum);
+                sum = (next - current);
+                System.out.println("resultado subtrai Menor" + sum);
             }
         }
 
@@ -106,7 +106,7 @@ public class RomanToInteger {
 
     public static void main(String[] args) {
         RomanToInteger romanToInteger = new RomanToInteger();
-        System.out.println(romanToInteger.romanToInt("iii"));
+        System.out.println(romanToInteger.romanToInt("LVIII"));
 
     }
 
