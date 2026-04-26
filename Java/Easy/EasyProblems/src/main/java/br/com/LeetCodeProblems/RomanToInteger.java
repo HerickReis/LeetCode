@@ -40,14 +40,9 @@ import java.util.Map;
 
 
 public class RomanToInteger {
-    int currentNumber = 0;
-    int nextNumber = 0;
-
     public int romanToInt(String s) {
         return calculate(s.toUpperCase());
     }
-
-    private int conversionTable(String roman) {
         Map<String, Integer> RomanNumbers = Map.of(
                 "I", 1,
                 "V", 5,
@@ -55,12 +50,7 @@ public class RomanToInteger {
                 "L", 50,
                 "C", 100,
                 "D", 500,
-                "M", 1000
-        );
-
-        return RomanNumbers.get(roman);
-    }
-
+                "M", 1000);
     private int calculate(String romanExpression){
 
         int expressionLenght = romanExpression.length();
@@ -69,11 +59,11 @@ public class RomanToInteger {
 
         for (int i = 0; i < expressionLenght; i++){
 
-            int current = conversionTable(String.valueOf(romanExpression.charAt(i)));
-            int next = (i + 1 < romanExpression.length())
-                    ? conversionTable(String.valueOf(romanExpression.charAt(i + 1))) : 0;
+            int current = RomanNumbers.get(romanExpression.charAt(i));
+            int next = (i + 1 < expressionLenght)
+                    ? RomanNumbers.get(romanExpression.charAt(i + 1)) : 0;
 
-            conversionTable(String.valueOf(romanExpression.charAt(i)));
+            RomanNumbers.get(romanExpression.charAt(i));
 
             int decision = conversionRule(current, next);
 
@@ -105,7 +95,7 @@ public class RomanToInteger {
 
     public static void main(String[] args) {
         RomanToInteger romanToInteger = new RomanToInteger();
-        System.out.println(romanToInteger.romanToInt("MCMXCIV"));
+        System.out.println(romanToInteger.romanToInt("XIV"));
     }
 }
 
