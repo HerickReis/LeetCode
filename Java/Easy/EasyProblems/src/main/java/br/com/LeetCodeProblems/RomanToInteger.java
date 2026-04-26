@@ -71,7 +71,7 @@ public class RomanToInteger {
         for (int i = index; i < expressionLenght; i++){
 
             int current = conversionTable(String.valueOf(romanExpression.charAt(index)));
-            int next = conversionTable(String.valueOf(romanExpression.charAt(index+1  index + 1 < expressionLenght )));
+            int next = conversionTable(String.valueOf(romanExpression.charAt(index+1)) );
 
             System.out.println("Current number: " + current + " / Next number: " + next + "index" + index);
             conversionTable(String.valueOf(romanExpression.charAt(i)));
