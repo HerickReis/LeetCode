@@ -47,7 +47,7 @@ public class RomanToInteger {
 
     public int romanToInt(String s) {
 
-//        ConversionRule(s.toUpperCase());
+         calculate(s.toUpperCase());
 
         return 1;
     }
@@ -80,15 +80,17 @@ public class RomanToInteger {
             if (current < next ) {
                 this.currentNumber = current;
                 this.nextNumber = next;
-                this.sum = next + current;
 
             } else if (current >= next) {
                 this.currentNumber = current;
                 this.nextNumber = next;
-                this.sum = current + next;
             }
 
         }
+
+    }
+
+    private int calculate(String romanExpression){
 
     }
 
@@ -96,7 +98,6 @@ public class RomanToInteger {
     public static void main(String[] args) {
         RomanToInteger romanToInteger = new RomanToInteger();
         System.out.println(romanToInteger.romanToInt("I"));
-
 
     }
 
